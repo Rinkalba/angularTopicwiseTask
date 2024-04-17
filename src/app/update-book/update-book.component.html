@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/mapping" >Bookish</a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/getAll">Get All</a>
+          </li>
+          
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container p-2">
+    <div class="row justify-content-center"> <!-- Center the content -->
+      <div class="col-md-6"> <!-- Take up half of the width -->
+        <div class="row">
+          <h3 class="text-center text-uppercase"><b>ADD Book To your Account!</b></h3>
+        </div>
+        <form [formGroup]="mappingForm" (ngSubmit)="onSubmit()" class="justify-content-around">
+          <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="text" class="form-control" id="id" name="id" formControlName="id">
+          </div>
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" formControlName="title">
+          </div>
+          <div class="form-group">
+            <label for="genre">Genre:</label>
+            <input type="text" class="form-control" id="genre" name="genre" formControlName="genre">
+          </div>
+          <div class="form-group">
+            <label for="studentName">Student Name:</label>
+            <input type="text" class="form-control" id="stuName" name="studentName" formControlName="stuName">
+          </div>
+          <!-- <div class="form-group">
+            <label for="stuId">Student ID:</label>
+            <input type="text" class="form-control" id="Stuid" name="Stuid" formControlName="Stuid">
+          </div> -->
+          <div class="form-group mb-2">
+            <label for="standard">Standard:</label>
+            <input type="text" class="form-control" id="standard" name="standard" formControlName="standard">
+          </div>
+          <div class="row justify-content-center mb-3"> <!-- Center the button -->
+            <button type="submit" class="btn btn-primary w-50">Submit</button>
+          </div>
+          <div class="row justify-content-center "> <!-- Center the response message -->
+          </div>
+        </form>
+        <hr>
+        {{responseData}}
+      </div>
+    </div>
+  </div>

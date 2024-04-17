@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/mapping" >Bookish</a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/getAll">Get All</a>
+          </li>
+          
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container mb-2 mt-2">
+        <h3 class="text-center"><b>All Students Data!</b></h3>
+      <table class="table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Genre</th>
+              <th scope="col">Student Name</th>
+              <th scope="col">Student Id</th>
+              <th scope="col">Standard</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let book of books">
+                <td>{{book.id}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.genre}}</td>
+                <td>{{book.student.stuName}}</td>
+                <td>{{book.student.stuid}}</td>
+                <td>{{book.student.standard}}</td>
+                <td><span (click)="updateBook(book.id)">
+                    <fa-icon [icon]="faEdit"></fa-icon>
+                </span></td>
+            </tr>
+           
+          </tbody>
+      </table>
+  </div>

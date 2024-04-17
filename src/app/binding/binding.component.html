@@ -1,0 +1,69 @@
+<div>
+    Enter First number : <input #fno type="number" name="fno"><br><br>
+    Enter Second number : <input #sno type="number" name="sno"><br><br>
+    <button type="text" (click)="calc(fno.value, sno.value,1)">Add</button>
+    <button type="text" (click)="calc(fno.value, sno.value,2)">Substraction</button>
+    <button type="text" (click)="calc(fno.value, sno.value,3)">Division</button>
+    <button type="text" (click)="calc(fno.value, sno.value,4)">Multiplication</button><br><br>
+    <h3 *ngIf="ans!=''">Result is : {{ans}}</h3>
+</div>
+<hr>
+<div>
+    <h3>TWO WAY DATA BINDING</h3>
+    <label for="username">Username: </label>
+    <input type="text" class="username" [(ngModel)]="movieName">
+    {{movieName}}
+</div>
+<hr>
+<div>
+    <h3>Ng If Else</h3>
+    <h3 *ngIf="flag; then ifpart;else elsepart"></h3>
+    <ng-template #ifpart>
+        <h3>Enter Some Data</h3>
+    </ng-template>
+    <ng-template #elsepart>
+        <h3>No Data Found</h3>
+    </ng-template>
+</div>
+
+<hr>
+<h3>Ng Switch Directive</h3>
+<div [ngSwitch]="movieName">
+    <div *ngSwitchCase="'iron man'">
+        <i>Movie From IronMan</i>
+    </div>
+    <div *ngSwitchCase="'spider man'">
+        <i>Movie From SpiderMan</i>
+    </div>
+    <div *ngSwitchCase="'thor'">
+        <i>Movie From Thor</i>
+    </div>
+    <div *ngSwitchDefault >
+        <div *ngIf="movieName!=''"> 
+            <i>Movie Not Found</i>
+
+        </div>
+    </div>
+</div>
+<hr>
+<div>
+    <h3>Ng For Directive</h3>
+  <table>
+    <tr>
+        <th>Sr.No</th>
+        <th>Name</th>
+        <th [attr.colspan]="3">Address</th>
+        <th>Age</th>
+        <th>Pincode</th>
+    </tr>
+    <tr *ngFor="let stu of students;index as i" >
+         <td>{{i+1}}</td>
+         <td>{{stu.name}}</td>
+         <td *ngFor="let add of stu.addresses" >{{add}}</td>
+         <td>{{stu.age}}</td>
+         <td>{{stu.pincode}}</td>
+    </tr>
+    
+  </table>
+      
+</div>

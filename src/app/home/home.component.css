@@ -1,0 +1,12 @@
+table,th,tr,td{
+    border:1px solid black;
+    border-collapse: collapse;
+   margin:auto !important;
+   margin-top:5rem!important;
+   width:80%;
+}
+
+tr,td{
+    padding:2rem;
+    cursor: pointer;
+}

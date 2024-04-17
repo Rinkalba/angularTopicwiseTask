@@ -1,0 +1,48 @@
+<div class="container mt-3 mb-3">
+
+    <mat-card>
+        <mat-card-header>
+            <mat-form-field>
+                <input matInput  (keyup)="filterChange($event)" type="text" placeholder="Search a Text" >
+            </mat-form-field>
+        </mat-card-header>
+        <mat-card-content>
+    
+    
+            <table matSort mat-table  [dataSource]="dataSource">
+                <ng-container matColumnDef="id">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef>ID</th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.id}}
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef>Date</th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.date|date}}
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef>Title</th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.title}}
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="percentage">
+                    <th mat-header-cell *matHeaderCellDef>Percentage</th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.percentage}}
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedData"></tr>
+                <tr mat-row *matRowDef="let row;columns:displayedData"></tr>
+            </table>
+        </mat-card-content>
+        <mat-card-footer>
+            <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+        </mat-card-footer>
+    
+    </mat-card>
+</div>
+
+

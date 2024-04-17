@@ -1,0 +1,12 @@
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr *ngFor="let st of studentData" (click)="getData(st)">
+        <td>{{st.id}}</td>
+        <td (click)="getDataWithName(st)">{{st.name}}</td>
+        <td>{{st.age}}</td>
+    </tr>
+</table>

@@ -1,0 +1,46 @@
+<div class="container mt-3 text-center">
+    <h2><b>Excel Handling</b></h2>
+    <button mat-raised-button color="primary" (click)="downloadDummyFile()">Download Excel File</button>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+    
+                <form [formGroup]="mappingForm"  class="justify-content-around">
+                    <div class="mb-3">
+                       
+                        <input class="form-control" type="file" id="file"  (change)="onFileSelect($event)" formControlName="file">
+                      </div>
+                      <div class="row justify-content-center mb-3"> <!-- Center the button -->
+                        <button mat-raised-button color="primary" class="w-50" (click)="uploadExcelFile()">Upload Excel File</button>
+                      </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container mb-5">
+
+    <table class="table table-striped" >
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>Title</th>
+          <th>Percentage</th>
+        </tr>
+        <tr *ngFor="let data of paginatedData">
+              <td>{{data.id}}</td>
+              <td>{{data.date | date}}</td>
+              <td>{{data.title}}</td>
+              <td>{{data.percentage}}</td>
+        </tr>
+    
+         
+        </table>
+     <app-paginator [totalItems]="tableData.length" [itemsPerPage]="itemsPerPage" [currentPage]="currentPage" (onClick)="changePage($event)"></app-paginator>
+       
+</div>
+      
+        <!-- <mat-paginator [length]="resultsLength" [pageSize]="30" aria-label="Select page of GitHub search results"></mat-paginator> -->
+  

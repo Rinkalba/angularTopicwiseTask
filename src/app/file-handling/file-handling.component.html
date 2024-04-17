@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/fileHandling" >FileHandling</a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/getProfile">Get Profile</a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="container p-2">
+    <div class="row justify-content-center"> <!-- Center the content -->
+      <div class="col-md-6"> <!-- Take up half of the width -->
+        <div class="row">
+          <h3 class="text-center text-uppercase"><b>ADD File To your Account!</b></h3>
+        </div>
+        <form [formGroup]="mappingForm"  class="justify-content-around">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Default file input example</label>
+                <input class="form-control" type="file" id="fileData"  (change)="onFileSelect($event)" formControlName="fileData">
+              </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Username</label>
+                <input class="form-control" type="text" id="user_name" formControlName="user_name">
+              </div>
+              <div class="row justify-content-center mb-3"> <!-- Center the button -->
+                <button type="submit" class="btn btn-primary w-50" (click)="uploadFile()">Submit</button>
+              </div>
+        
+          <div class="row justify-content-center "> <!-- Center the response message -->
+            <hr>
+            {{responseData}}
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Id</label>
+                <input class="form-control" type="text" id="id" [(ngModel)]="id">
+              </div>
+            <div class="row justify-content-center mb-3"> <!-- Center the button -->
+    
+                <button type="submit" class="btn btn-primary w-50" (click)="getProfile(this.id)">Get Profile</button>
+              </div>
+
+        </div>
+    
+    </div>
+  </div>
